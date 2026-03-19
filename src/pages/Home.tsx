@@ -46,9 +46,9 @@ export default function Home() {
             </Link>
             
             <div className="flex space-x-4">
-              <SocialLink href="https://github.com" icon={<Github />} />
-              <SocialLink href="https://linkedin.com" icon={<Linkedin />} />
-              <SocialLink href="mailto:hello@example.com" icon={<Mail />} />
+              <SocialLink href="https://github.com/krishcshah" icon={<Github />} />
+              <SocialLink href="https://linkedin.com/krishcshah" icon={<Linkedin />} />
+              <SocialLink href="mailto:hello@krishshah.de" icon={<Mail />} />
             </div>
           </div>
         </div>
