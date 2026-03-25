@@ -52,6 +52,3 @@ To run this project on your local machine, follow these steps:
 *   `npm run preview`: Locally previews the production build.
 *   `npm run lint`: Runs TypeScript type checking.
 
-## License
-
-MIT
