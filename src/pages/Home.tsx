@@ -28,7 +28,28 @@ export default function Home() {
       <section className="min-h-[80vh] flex flex-col justify-center relative">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,_rgba(0,255,0,0.1)_0%,_transparent_60%)] filter blur-[60px] opacity-50 pointer-events-none" />
         
-        <div className="z-10 space-y-8">
+        {/* Right-aligned Hero Image */}
+        <div className="absolute top-0 right-0 bottom-0 w-1/2 md:w-[60%] pointer-events-none overflow-hidden flex items-center justify-end">
+          <div className="relative w-full h-full max-h-[80vh]">
+            <div className="absolute inset-0 bg-[#00FF00] mix-blend-multiply z-10" />
+            <motion.img 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.8 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              src="/hero-image.png" 
+              alt="Profile" 
+              className="w-full h-full object-cover grayscale object-right"
+              style={{
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+                WebkitMaskComposite: 'source-in',
+                maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+                maskComposite: 'intersect'
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="z-10 space-y-8 relative">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
