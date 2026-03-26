@@ -30,8 +30,16 @@ export default function Home() {
         
         {/* Right-aligned Hero Image */}
         <div className="absolute top-0 right-0 bottom-0 w-full md:w-[60%] pointer-events-none overflow-hidden hidden md:flex items-center justify-end opacity-20 md:opacity-100">
-          <div className="relative w-full h-full max-h-[80vh] pointer-events-auto group">
-            <div className="absolute inset-0 bg-[#00FF00] mix-blend-multiply z-10 opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none" />
+          <div 
+            className="relative w-full h-full max-h-[80vh] pointer-events-auto group"
+            style={{
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+              WebkitMaskComposite: 'source-in',
+              maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
+              maskComposite: 'intersect'
+            }}
+          >
+            <div className="absolute inset-0 bg-[#00FF00] mix-blend-multiply z-10 opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none" />
             <motion.img 
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
@@ -39,12 +47,6 @@ export default function Home() {
               src="/hero-image.png" 
               alt="Profile" 
               className="w-full h-full object-cover grayscale object-right"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
-                WebkitMaskComposite: 'source-in',
-                maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)',
-                maskComposite: 'intersect'
-              }}
             />
           </div>
         </div>
