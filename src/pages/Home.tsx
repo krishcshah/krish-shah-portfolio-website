@@ -30,8 +30,8 @@ export default function Home() {
         
         {/* Right-aligned Hero Image */}
         <div className="absolute top-0 right-0 bottom-0 w-full md:w-[60%] pointer-events-none overflow-hidden hidden md:flex items-center justify-end opacity-20 md:opacity-100">
-          <div className="relative w-full h-full max-h-[80vh]">
-            <div className="absolute inset-0 bg-[#00FF00] mix-blend-multiply z-10" />
+          <div className="relative w-full h-full max-h-[80vh] pointer-events-auto group">
+            <div className="absolute inset-0 bg-[#00FF00] mix-blend-multiply z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             <motion.img 
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
