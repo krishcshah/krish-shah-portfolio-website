@@ -29,7 +29,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,_rgba(0,255,0,0.1)_0%,_transparent_60%)] filter blur-[60px] opacity-50 pointer-events-none" />
         
         {/* Right-aligned Hero Image */}
-        <div className="absolute top-0 right-0 bottom-0 w-full md:w-[60%] pointer-events-none overflow-hidden flex items-center justify-end opacity-20 md:opacity-100">
+        <div className="absolute top-0 right-0 bottom-0 w-full md:w-[60%] pointer-events-none overflow-hidden hidden md:flex items-center justify-end opacity-20 md:opacity-100">
           <div className="relative w-full h-full max-h-[80vh]">
             <div className="absolute inset-0 bg-[#00FF00] mix-blend-multiply z-10" />
             <motion.img 
