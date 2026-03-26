@@ -29,7 +29,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,_rgba(0,255,0,0.1)_0%,_transparent_60%)] filter blur-[60px] opacity-50 pointer-events-none" />
         
         {/* Right-aligned Hero Image */}
-        <div className="absolute top-0 right-0 bottom-0 w-1/2 md:w-[60%] pointer-events-none overflow-hidden flex items-center justify-end">
+        <div className="absolute top-0 right-0 bottom-0 w-full md:w-[60%] pointer-events-none overflow-hidden flex items-center justify-end opacity-20 md:opacity-100">
           <div className="relative w-full h-full max-h-[80vh]">
             <div className="absolute inset-0 bg-[#00FF00] mix-blend-multiply z-10" />
             <motion.img 
@@ -49,38 +49,38 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="z-10 space-y-8 relative">
+        <div className="z-10 space-y-6 md:space-y-8 relative">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="font-mono text-[#00FF00] tracking-widest text-sm"
+            className="font-mono text-[#00FF00] tracking-widest text-xs md:text-sm"
           >
             01 // KRISH SHAH - SOFTWARE ENGINEER
           </motion.div>
           
-          <h1 className="text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white">
+          <h1 className="text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter uppercase leading-[0.85] text-white">
             Building<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FF00] to-emerald-600">
-              Digital
+              Cool
             </span><br />
-            Futures
+            Stuff
           </h1>
           
-          <p className="max-w-xl text-xl text-white/60 font-light leading-relaxed">
+          <p className="max-w-xl text-lg md:text-xl text-white/60 font-light leading-relaxed">
             I craft high-performance web applications, scalable systems, and innovative digital experiences. Specializing in modern React, Node.js, and cloud architecture.
           </p>
           
-          <div className="flex items-center space-x-6 pt-8">
+          <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 pt-4 md:pt-8 w-full">
             <Link 
               to="/blog" 
-              className="group flex items-center space-x-2 bg-[#00FF00] text-black px-8 py-4 font-mono font-bold uppercase tracking-wider hover:bg-white transition-colors"
+              className="group flex justify-center items-center space-x-2 bg-[#00FF00] text-black px-6 py-3 md:px-8 md:py-4 font-mono font-bold uppercase tracking-wider hover:bg-white transition-colors w-full sm:w-auto"
             >
               <span>Read My Thoughts</span>
               <ArrowRight className="group-hover:translate-x-1 transition-transform" />
             </Link>
             
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center sm:justify-start">
               <SocialLink href="https://github.com/krishcshah" icon={<Github />} />
               <SocialLink href="https://www.linkedin.com/in/krishcshah/" icon={<Linkedin />} />
               <SocialLink href="mailto:hello@krishshah.de" icon={<Mail />} />
@@ -123,8 +123,8 @@ export default function Home() {
 
       {/* Selected Projects */}
       <section className="border-t border-white/10 pt-24 pb-24">
-        <div className="flex justify-between items-end mb-12">
-          <h2 className="text-5xl font-black uppercase tracking-tighter">Projects</h2>
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 sm:mb-12 gap-4">
+          <h2 className="text-4xl sm:text-5xl md:text-5xl font-black uppercase tracking-tighter">Projects</h2>
           <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-[#00FF00] font-mono text-sm hover:underline underline-offset-4">
             VIEW ALL ON GITHUB [→]
           </a>

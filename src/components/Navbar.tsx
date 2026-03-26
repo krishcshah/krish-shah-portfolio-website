@@ -20,7 +20,7 @@ export default function Navbar({ user }: { user: User | null }) {
             <span className="font-mono font-bold tracking-tighter text-lg">KRISH_SHAH</span>
           </Link>
           
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-4 md:space-x-8">
             <NavLink to="/" current={location.pathname}>HOME</NavLink>
             <NavLink to="/blog" current={location.pathname}>BLOG</NavLink>
             {user ? (
