@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot, doc, deleteDoc, updateDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot, doc, deleteDoc, updateDoc, Timestamp } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import { motion } from 'motion/react';
 import { Edit2, Trash2, Plus, Eye, Save, Sparkles } from 'lucide-react';
@@ -36,6 +36,7 @@ export default function Admin() {
   const [excerpt, setExcerpt] = useState('');
   const [tags, setTags] = useState('');
   const [isPublished, setIsPublished] = useState(false);
+  const [publishedDate, setPublishedDate] = useState('');
 
   useEffect(() => {
     const q = query(collection(db, 'posts'), orderBy('publishedAt', 'desc'));
@@ -58,6 +59,14 @@ export default function Admin() {
     e.preventDefault();
     if (!auth.currentUser) return;
 
+    let finalPublishedAt = isPublished ? (editingPost?.publishedAt || serverTimestamp()) : null;
+    if (isPublished && publishedDate) {
+      const parsedDate = new Date(publishedDate);
+      if (!isNaN(parsedDate.getTime())) {
+        finalPublishedAt = Timestamp.fromDate(parsedDate);
+      }
+    }
+
     const postData = {
       title,
       slug,
@@ -66,7 +75,7 @@ export default function Admin() {
       tags: tags.split(',').map(t => t.trim()).filter(Boolean),
       isPublished,
       authorId: auth.currentUser.uid,
-      publishedAt: isPublished ? (editingPost?.publishedAt || serverTimestamp()) : null
+      publishedAt: finalPublishedAt
     };
 
     try {
@@ -101,6 +110,15 @@ export default function Admin() {
     setExcerpt(post.excerpt || '');
     setTags((post.tags || []).join(', '));
     setIsPublished(post.isPublished || false);
+    
+    if (post.publishedAt) {
+      // Convert firestore timestamp to YYYY-MM-DD
+      const dateStr = post.publishedAt.toDate().toISOString().split('T')[0];
+      setPublishedDate(dateStr);
+    } else {
+      setPublishedDate('');
+    }
+    
     setIsCreating(true);
   };
 
@@ -113,6 +131,7 @@ export default function Admin() {
     setExcerpt('');
     setTags('');
     setIsPublished(false);
+    setPublishedDate('');
     setPreviewMode(false);
   };
 
@@ -287,6 +306,17 @@ export default function Admin() {
                   className="w-full bg-white/5 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-[#00FF00] transition-colors font-mono"
                   placeholder="react, typescript, web"
                 />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-mono text-white/50 uppercase tracking-widest">Publication Date</label>
+                <input 
+                  type="date" 
+                  value={publishedDate}
+                  onChange={(e) => setPublishedDate(e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-[#00FF00] transition-colors font-mono custom-date-input"
+                />
+                <p className="text-xs text-white/30 font-mono">Leave blank to use current date when published.</p>
               </div>
 
               <div className="flex items-center space-x-3 pt-4">
