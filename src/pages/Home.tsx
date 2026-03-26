@@ -49,7 +49,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="z-10 space-y-6 md:space-y-8 relative">
+        <div className="z-10 space-y-6 md:space-y-8 relative pointer-events-none">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -67,11 +67,11 @@ export default function Home() {
             Stuff
           </h1>
           
-          <p className="max-w-xl text-lg md:text-xl text-white/60 font-light leading-relaxed">
+          <p className="max-w-xl text-lg md:text-xl text-white/60 font-light leading-relaxed pointer-events-auto">
             I craft high-performance web applications, scalable systems, and innovative digital experiences. Specializing in modern React, Node.js, and cloud architecture.
           </p>
           
-          <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 pt-4 md:pt-8 w-full">
+          <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 pt-4 md:pt-8 w-full pointer-events-auto">
             <Link 
               to="/blog" 
               className="group flex justify-center items-center space-x-2 bg-[#00FF00] text-black px-6 py-3 md:px-8 md:py-4 font-mono font-bold uppercase tracking-wider hover:bg-white transition-colors w-full sm:w-auto"
